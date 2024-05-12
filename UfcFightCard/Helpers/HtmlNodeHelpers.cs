@@ -8,6 +8,44 @@ namespace UfcFightCard.Helpers
 {
     public static class HtmlNodeHelpers
     {
+
+        // dictionary containing all possible method calls via HtmlParseAction
+        private static Dictionary<string, Func<HtmlNode, string>> htmlNodeHelperMethods = new Dictionary<string, Func<HtmlNode, string>>()
+        {
+            { "LeftImage", HtmlNodeHelpers.LeftImage },
+            { "RightImage", HtmlNodeHelpers.RightImage },
+            { "LeftName", HtmlNodeHelpers.LeftName },
+            { "RightName", HtmlNodeHelpers.RightName },
+            { "WeightClass", HtmlNodeHelpers.WeightClass },
+            { "CountryLeft", HtmlNodeHelpers.CountryLeft },
+            { "CountryRight", HtmlNodeHelpers.CountryRight },
+            { "LeftCountryImage", HtmlNodeHelpers.LeftCountryImage },
+            { "RightCountryImage", HtmlNodeHelpers.RightCountryImage },
+            { "LeftRank", HtmlNodeHelpers.LeftRank },
+            { "RightRank", HtmlNodeHelpers.RightRank },
+        };
+
+        public static string HtmlParseAction(this HtmlNode htmlNode, string actionName)
+        {
+            string actionReturnString;
+            if (htmlNodeHelperMethods.TryGetValue(actionName, out Func<HtmlNode, string> helperMethodToCall))
+            {
+                try
+                {
+                    actionReturnString = helperMethodToCall(htmlNode);
+                }
+                catch
+                {
+                    actionReturnString = $"Unable to parse html for action {actionName}";
+                }
+            }
+            else
+            {
+                throw new ArgumentException($"Method '{actionName}' not found");
+            }
+            return actionReturnString;
+        }
+
         public static string LeftImage(this HtmlNode htmlNode)
         {
             return htmlNode.CssSelect(Tags.AthleteImage).First().Attributes[Tags.Src].Value.Trim();
