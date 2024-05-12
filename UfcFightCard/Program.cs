@@ -5,8 +5,10 @@ using UfcFightCard.Constants;
 using UfcFightCard.Misc;
 using UfcFightCard.Models;
 using System.Web;
+
 var config = new ConfigurationBuilder()
-               .AddJsonFile(Url.Config, false)
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                .Build();
 
 var ufcCardDetails = UfcEventsScraper.GetLatestUfcCardDetails();
