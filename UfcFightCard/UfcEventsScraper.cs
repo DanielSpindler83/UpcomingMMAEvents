@@ -53,18 +53,18 @@ namespace UfcFightCard
             {
                 var fightCardItem = new UfcFightCardEmail()
                 {
-                    FighterLeftImage = fight.LeftImage(),
-                    FighterRightImage = fight.RightImage(),
-                    FighterLeftName = fight.LeftName(),
-                    FighterRightName = fight.RightName(),
-                    WeightClass = fight.WeightClass(),
-                    FighterLeftCountry = fight.CountryLeft(),
-                    FighterRightCountry = fight.CountryRight(),
-                    FighterLeftCountryImage = fight.LeftCountryImage(),
-                    FighterRightCountryImage = fight.RightCountryImage(),
-                    FighterLeftRank = fight.LeftRank(),
-                    FighterRightRank = fight.RightRank()
-				};
+                    FighterLeftImage = fight.HtmlParseAction("LeftImage"),
+                    FighterRightImage = fight.HtmlParseAction("RightImage"),
+                    FighterLeftName = fight.HtmlParseAction("LeftName"),
+                    FighterRightName = fight.HtmlParseAction("RightName"),
+                    WeightClass = fight.HtmlParseAction("WeightClass"),
+                    FighterLeftCountry = fight.HtmlParseAction("CountryLeft"),
+                    FighterRightCountry = fight.HtmlParseAction("CountryRight"),
+                    FighterLeftCountryImage = fight.HtmlParseAction("LeftCountryImage"),
+                    FighterRightCountryImage = fight.HtmlParseAction("RightCountryImage"),
+                    FighterLeftRank = fight.HtmlParseAction("LeftRank"),
+                    FighterRightRank = fight.HtmlParseAction("RightRank")
+                };
                 list.Add(fightCardItem);
             }
             return list;
