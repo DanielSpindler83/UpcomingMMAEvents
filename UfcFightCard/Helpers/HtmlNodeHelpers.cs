@@ -92,36 +92,19 @@ namespace UfcFightCard.Helpers
         }
         public static string WeightClass(this HtmlNode htmlNode)
         {
-            try
-            {
-                return htmlNode.CssSelect(Tags.WeightClass).First().InnerHtml.Trim();
-            }
-            catch
-            {
-                return "N/a";
-            }
+
+            return htmlNode.CssSelect(Tags.WeightClass).First().InnerHtml.Trim();
+
         }
 		public static string CountryLeft(this HtmlNode htmlNode)
 		{
-			try
-			{
-				return htmlNode.CssSelect(Tags.CountryText).ToList()[0].InnerHtml.Trim();
-			}
-			catch
-			{
-				return "N/a";
-			}
+		    return htmlNode.CssSelect(Tags.CountryText).ToList()[0].InnerHtml.Trim();
 		}
 		public static string CountryRight(this HtmlNode htmlNode)
 		{
-			try
-			{
-				return htmlNode.CssSelect(Tags.CountryText).ToList()[1].InnerHtml.Trim();
-			}
-			catch
-			{
-				return "N/a";
-			}
+
+			return htmlNode.CssSelect(Tags.CountryText).ToList()[1].InnerHtml.Trim();
+
 		}
 		public static List<HtmlNode> Fights(List<HtmlNode> htmlNode)
         {
