@@ -56,11 +56,11 @@ namespace UfcFightCard.Helpers
         }
 		public static string LeftCountryImage(this HtmlNode htmlNode)
 		{
-            return $"{Url.Ufc}{htmlNode.CssSelect(Tags.AthleteCountryLeft).ToList()[0].CssSelect(Tags.Img).First().Attributes[Tags.Src].Value.Trim()}";
+            return $"{htmlNode.CssSelect(Tags.AthleteCountryLeft).ToList()[0].CssSelect(Tags.Img).First().Attributes[Tags.Src].Value.Trim()}";
 		}
 		public static string RightCountryImage(this HtmlNode htmlNode)
 		{
-			return $"{Url.Ufc}{htmlNode.CssSelect(Tags.AthleteCountryRight).ToList()[0].CssSelect(Tags.Img).First().Attributes[Tags.Src].Value.Trim()}";
+			return $"{htmlNode.CssSelect(Tags.AthleteCountryRight).ToList()[0].CssSelect(Tags.Img).First().Attributes[Tags.Src].Value.Trim()}";
 		}
 		public static string LeftName(this HtmlNode htmlNode)
         {
