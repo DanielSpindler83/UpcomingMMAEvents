@@ -36,7 +36,7 @@ namespace UfcFightCard.Helpers
                 }
                 catch
                 {
-                    actionReturnString = $"Unable to parse html for action {actionName}";
+                    actionReturnString = $"<!-- Content not found for action {actionName} -->";
                 }
             }
             else
